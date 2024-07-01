@@ -1,8 +1,14 @@
 package hiyen;
 
-public class Main {
+import java.util.Scanner;
 
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        VendingMachine vendingMachine = new VendingMachine();
+        Scanner scanner = new Scanner(System.in);
+        String order = scanner.nextLine();
+
+        Drink popped = vendingMachine.pop(order);
+        popped.drink();
     }
 }
