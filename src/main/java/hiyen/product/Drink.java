@@ -1,21 +1,23 @@
-package hiyen;
+package hiyen.product;
 
-public abstract class Food implements Product {
+public abstract class Drink implements Product {
+
     private final String name;
     private final int price;
 
-    public Food(final String name, final int price) {
+    public Drink(final String name, final int price) {
         this.name = name;
         this.price = price;
     }
 
-    public static Food from(final String name, final int price) {
-        return new Food(name, price) {};
+    public static Drink from(final String name, final int price) {
+        return new Drink(name, price) {
+        };
     }
 
     @Override
     public String consume() {
-        return "Yummy " + name;
+        return "This is " + name;
     }
 
     @Override

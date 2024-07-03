@@ -1,16 +1,21 @@
 package hiyen;
 
+import hiyen.product.Cider;
+import hiyen.product.Coke;
+import hiyen.product.DoctorPepper;
+import hiyen.product.Product;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class VendingMachine {
+
     private static final Map<Product, Integer> store = new HashMap<>();
 
     static {
         store.put(new DoctorPepper("Doctor Pepper", 600), 5);
-        store.put(new Coke("Coke",400), 5);
-        store.put(new Cider("Cider",500), 5);
+        store.put(new Coke("Coke", 400), 5);
+        store.put(new Cider("Cider", 500), 5);
     }
 
     public Product pop(final String name) {
@@ -19,8 +24,8 @@ public class VendingMachine {
             .findAny()
             .orElseThrow(() -> new IllegalArgumentException("보유 하지 않은 음료수 입니다."));
 
-         store.put(found, store.get(found) - 1);
-         return found;
+        store.put(found, store.get(found) - 1);
+        return found;
     }
 
     public void add(final Product product) {

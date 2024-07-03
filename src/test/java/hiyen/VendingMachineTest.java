@@ -2,6 +2,9 @@ package hiyen;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import hiyen.product.Drink;
+import hiyen.product.Food;
+import hiyen.product.Product;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

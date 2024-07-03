@@ -1,5 +1,6 @@
 package hiyen;
 
+import hiyen.ui.Console;
 import java.util.ArrayList;
 import java.util.List;
 
