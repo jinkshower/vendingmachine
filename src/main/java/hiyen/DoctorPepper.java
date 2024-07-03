@@ -6,7 +6,7 @@ public class DoctorPepper extends Drink {
     }
 
     @Override
-    public void drink() {
-        System.out.println("This is Doctor Pepper");
+    public String drink() {
+        return "This is Doctor Pepper";
     }
 }

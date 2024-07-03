@@ -9,7 +9,7 @@ public abstract class Drink {
         this.price = price;
     }
 
-    public abstract void drink();
+    public abstract String drink();
 
     public String getName() {
         return name;

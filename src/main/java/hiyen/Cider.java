@@ -6,7 +6,7 @@ public class Cider extends Drink {
     }
 
     @Override
-    public void drink() {
-        System.out.println("This is cider");
+    public String drink() {
+        return "This is Cider";
     }
 }

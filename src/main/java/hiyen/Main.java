@@ -6,9 +6,11 @@ public class Main {
     public static void main(String[] args) {
         VendingMachine vendingMachine = new VendingMachine();
         Scanner scanner = new Scanner(System.in);
-        String order = scanner.nextLine();
+        Console console = new PrintConsole(scanner);
+
+        String order = console.read();
 
         Drink popped = vendingMachine.pop(order);
-        popped.drink();
+        console.print(popped.drink());
     }
 }
