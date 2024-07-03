@@ -1,5 +1,7 @@
 package hiyen.product;
 
+import java.util.Objects;
+
 public abstract class Drink implements Product {
 
     private final String name;
@@ -28,5 +30,22 @@ public abstract class Drink implements Product {
     @Override
     public int getPrice() {
         return price;
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        final Drink drink = (Drink) object;
+        return price == drink.price && Objects.equals(name, drink.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price);
     }
 }
