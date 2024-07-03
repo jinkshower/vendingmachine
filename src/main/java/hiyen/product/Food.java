@@ -7,7 +7,7 @@ public abstract class Food implements Product {
     private final String name;
     private final int price;
 
-    public Food(final String name, final int price) {
+    Food(final String name, final int price) {
         this.name = name;
         this.price = price;
     }
