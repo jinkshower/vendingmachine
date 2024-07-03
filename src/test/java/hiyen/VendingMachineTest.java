@@ -22,6 +22,7 @@ class VendingMachineTest {
     @Test
     void 이름으로_상품을_반환_받을_수_있다() {
         //given
+        vendingMachine.initialize();
         String wanted = "Coke";
         String expected = "This is Coke";
 
@@ -38,12 +39,13 @@ class VendingMachineTest {
     void 다른_종류의_음료수를_추가할_수_있다() {
         //given
         vendingMachine.add(Drink.from("Pepsi", 100));
+        vendingMachine.add(Drink.from("Pepsi", 100));
 
         //when
         Map<Product, Integer> store = vendingMachine.getStore();
 
         //then
-        assertEquals(4, store.size());
+        assertEquals(1, store.size());
     }
 
     @Test
@@ -55,6 +57,6 @@ class VendingMachineTest {
         Map<Product, Integer> store = vendingMachine.getStore();
 
         //then
-        assertEquals(5, store.size());
+        assertEquals(1, store.size());
     }
 }

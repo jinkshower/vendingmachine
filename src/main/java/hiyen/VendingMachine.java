@@ -4,18 +4,19 @@ import hiyen.product.Cider;
 import hiyen.product.Coke;
 import hiyen.product.DoctorPepper;
 import hiyen.product.Product;
+import hiyen.product.Twix;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class VendingMachine {
+    private final Map<Product, Integer> store = new HashMap<>();
 
-    private static final Map<Product, Integer> store = new HashMap<>();
-
-    static {
+    public void initialize() {
         store.put(new DoctorPepper("Doctor Pepper", 600), 5);
         store.put(new Coke("Coke", 400), 5);
         store.put(new Cider("Cider", 500), 5);
+        store.put(new Twix("Twix", 300), 5);
     }
 
     public Product pop(final String name) {
