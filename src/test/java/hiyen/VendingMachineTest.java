@@ -17,14 +17,14 @@ class VendingMachineTest {
     }
 
     @Test
-    void 이름으로_음료수를_반환_받을_수_있다() {
+    void 이름으로_상품을_반환_받을_수_있다() {
         //given
         String wanted = "Coke";
         String expected = "This is Coke";
 
         //when
-        Drink pop = vendingMachine.pop(wanted);
-        String message = pop.drink();
+        Product popped = vendingMachine.pop(wanted);
+        String message = popped.consume();
         console.print(message);
 
         //then
@@ -34,12 +34,24 @@ class VendingMachineTest {
     @Test
     void 다른_종류의_음료수를_추가할_수_있다() {
         //given
-        vendingMachine.add(new NameAndPriceGenerator("Sprite", 700));
+        vendingMachine.add(Drink.from("Pepsi", 100));
 
         //when
-        Map<Drink, Integer> store = vendingMachine.getStore();
+        Map<Product, Integer> store = vendingMachine.getStore();
 
         //then
         assertEquals(4, store.size());
+    }
+
+    @Test
+    void 다른_종류의_음식을_추가할_수_있다() {
+        //given
+        vendingMachine.add(Food.from("Twinkie", 300));
+
+        //when
+        Map<Product, Integer> store = vendingMachine.getStore();
+
+        //then
+        assertEquals(5, store.size());
     }
 }

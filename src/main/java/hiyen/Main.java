@@ -10,7 +10,7 @@ public class Main {
 
         String order = console.read();
 
-        Drink popped = vendingMachine.pop(order);
-        console.print(popped.drink());
+        Product popped = vendingMachine.pop(order);
+        console.print(popped.consume());
     }
 }

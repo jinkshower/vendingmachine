@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class VendingMachine {
-    private static final Map<Drink, Integer> store = new HashMap<>();
+    private static final Map<Product, Integer> store = new HashMap<>();
 
     static {
         store.put(new DoctorPepper("Doctor Pepper", 600), 5);
@@ -13,9 +13,9 @@ public class VendingMachine {
         store.put(new Cider("Cider",500), 5);
     }
 
-    public Drink pop(final String drink) {
-        Drink found = store.keySet().stream()
-            .filter(it -> it.getName().equals(drink))
+    public Product pop(final String name) {
+        Product found = store.keySet().stream()
+            .filter(it -> it.getName().equals(name))
             .findAny()
             .orElseThrow(() -> new IllegalArgumentException("보유 하지 않은 음료수 입니다."));
 
@@ -23,12 +23,11 @@ public class VendingMachine {
          return found;
     }
 
-    public void add(final DrinkGenerator drinkGenerator) {
-        Drink drink = drinkGenerator.generate();
-        store.put(drink, store.getOrDefault(drink, 0) + 1);
+    public void add(final Product product) {
+        store.put(product, store.getOrDefault(product, 0) + 1);
     }
 
-    public Map<Drink, Integer> getStore() {
+    public Map<Product, Integer> getStore() {
         return Collections.unmodifiableMap(store);
     }
 }
