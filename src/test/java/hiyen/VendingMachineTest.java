@@ -34,12 +34,7 @@ class VendingMachineTest {
     @Test
     void 다른_종류의_음료수를_추가할_수_있다() {
         //given
-        vendingMachine.add(new Drink("Lemonade", 800) {
-            @Override
-            public String drink() {
-                return "This is Lemonade";
-            }
-        });
+        vendingMachine.add(new NameAndPriceGenerator("Sprite", 700));
 
         //when
         Map<Drink, Integer> store = vendingMachine.getStore();

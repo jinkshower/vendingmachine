@@ -23,7 +23,8 @@ public class VendingMachine {
          return found;
     }
 
-    public void add(final Drink drink) {
+    public void add(final DrinkGenerator drinkGenerator) {
+        Drink drink = drinkGenerator.generate();
         store.put(drink, store.getOrDefault(drink, 0) + 1);
     }
 
