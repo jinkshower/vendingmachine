@@ -1,5 +1,6 @@
 package hiyen;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,5 +21,13 @@ public class VendingMachine {
 
          store.put(found, store.get(found) - 1);
          return found;
+    }
+
+    public void add(final Drink drink) {
+        store.put(drink, store.getOrDefault(drink, 0) + 1);
+    }
+
+    public Map<Drink, Integer> getStore() {
+        return Collections.unmodifiableMap(store);
     }
 }
